@@ -20,9 +20,9 @@ Each project is located in its own folder, with an `index.html`, `style.css`, an
 4. Open any project folder and launch index.html in your browser to view and interact with the app.
 
 ## 💻 Technologies Used
-**HTML** - For structuring each project.
-**CSS** - For styling the user interface.
-**JavaScript** - For handling functionality and user interactions.
+1. **HTML** - For structuring each project.
+2. **CSS** - For styling the user interface.
+3. **JavaScript** - For handling functionality and user interactions.
 
 ## 🙏 Acknowledgments
 Inspired by various JavaScript tutorials and projects for learning and practice purposes.
