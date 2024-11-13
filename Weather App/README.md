@@ -7,19 +7,6 @@ A simple and visually appealing weather app that provides real-time weather info
 
 ---
 
-## 📋 Table of Contents
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [API Setup](#api-setup)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-
----
-
 ## 🌟 Features
 - **City Search**: Enter any city name to retrieve its current weather details.
 - **Weather Display**: Shows temperature, weather icon, humidity percentage, and wind speed.
