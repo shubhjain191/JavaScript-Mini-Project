@@ -7,7 +7,8 @@ A collection of mini projects built using JavaScript to practice and demonstrate
 Below are some of the mini projects included in this repository:
 
 1. **Weather App** - A real-time weather app that fetches weather information based on user input.
-2. **To-Do List App** - A to-do list app to add, delete, and mark tasks as completed. 
+2. **To-Do List App** - A to-do list app to add, delete, and mark tasks as completed.
+3. **Generate Random Password App** - A simple tool with a user-friendly interface to generate and copy secure random passwords.
 
 Each project is located in its own folder, with an `index.html`, `style.css`, and `script.js` (where applicable) file to make it easy to explore and understand.
 
