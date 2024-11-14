@@ -10,6 +10,7 @@ Below are some of the mini projects included in this repository:
 2. **To-Do List App** - A to-do list app to add, delete, and mark tasks as completed.
 3. **Generate Random Password App** - A simple tool with a user-friendly interface to generate and copy secure random passwords.
 4. **Age Calculator App** - A simple and stylish web-based Age Calculator that dynamically calculates age in years, months, and days based on a selected birth date.
+5. **QR Code Generator App** - It allows you to generate QR codes for any input text and display them on the webpage.
 
 Each project is located in its own folder, with an `index.html`, `style.css`, and `script.js` (where applicable) file to make it easy to explore and understand.
 
