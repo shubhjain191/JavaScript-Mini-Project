@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Age Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="age-calculator">
+    <h1>Age Calculator</h1>
+    <input type="date" id="birthDate" oninput="calculateAge()" placeholder="Select your birthdate" />
+    <div class="result">
+      <p id="years">0</p>
+      <span>Years</span>
+      <p id="months">0</p>
+      <span>Months</span>
+      <p id="days">0</p>
+      <span>Days</span>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
