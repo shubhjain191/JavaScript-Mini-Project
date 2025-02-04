@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signature Pad</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef2f5 100%);
+            min-height: 100vh;
+        }
+        .signature-container {
+            background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        canvas {
+            background: #fff;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            transition: border-color 0.2s;
+        }
+        canvas:hover {
+            border-color: #93c5fd;
+        }
+        .btn {
+            transition: all 0.2s;
+            transform: translateY(0);
+        }
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+        .btn:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-6">
+    <div class="signature-container max-w-2xl w-full">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6">Digital Signature</h1>
+        <canvas id="signatureCanvas" width="600" height="200" class="w-full mb-6"></canvas>
+        <div class="flex gap-4">
+            <button onclick="clearCanvas()" class="btn bg-gray-50 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-100">
+                Clear
+            </button>
+            <button onclick="saveSignature()" class="btn bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600">
+                Save Signature
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('signatureCanvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let lastX = 0;
+        let lastY = 0;
+
+        ctx.strokeStyle = '#1f2937';
+        ctx.lineWidth = 2.5;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+        canvas.addEventListener('touchstart', handleTouch);
+        canvas.addEventListener('touchmove', handleTouch);
+        canvas.addEventListener('touchend', stopDrawing);
+
+        function startDrawing(e) {
+            isDrawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
+
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            const offsetX = touch.clientX - rect.left;
+            const offsetY = touch.clientY - rect.top;
+
+            if (e.type === 'touchstart') {
+                isDrawing = true;
+                [lastX, lastY] = [offsetX, offsetY];
+            } else if (e.type === 'touchmove' && isDrawing) {
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(offsetX, offsetY);
+                ctx.stroke();
+                [lastX, lastY] = [offsetX, offsetY];
+            }
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function saveSignature() {
+            const dataURL = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = 'signature.png';
+            link.href = dataURL;
+            link.click();
+        }
+    </script>
+</body>
+</html>
